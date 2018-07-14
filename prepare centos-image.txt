@@ -1,0 +1,26 @@
+Prepare Centos Image:
+-----------------------
+
+docker run -d centos
+docker run -d centos tail -f /dev/null (keeps the container alive)
+docker exec -it wizardly_northcutt bash (bash into centos)
+whoami -> root
+
+Install java:
+-------------
+
+yum install java
+java -version should print version now
+
+
+
+Make Docker image with SpringBoot App included:
+------------------------------------------------
+
+docker build -t spring-boot-docker .
+This creates an new image with the name: spring-boot-docker
+
+docker run -d -p 8081:8080 spring-boot-docker
+docker logs -f <id>
+
+App is now running in localhost:8081
